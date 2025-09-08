@@ -1,0 +1,23 @@
+.alert {
+    position: absolute;
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 16px;
+    background-color: var(--mat-sys-surface);
+    border-radius: 99rem;
+    color: var(--md-sys-color-primary);
+
+    &--success {
+      background-color: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+    }
+    &--error {
+      background-color: var(--mat-sys-error);
+      color: var(--md-sys-color-on-primary);
+    }
+    p {
+        margin: 0;
+        font-size: inherit;
+    }
+}

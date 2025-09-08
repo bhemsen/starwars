@@ -1,0 +1,57 @@
+
+    <app-split-view>
+        <h2 headline>Personen</h2>
+        <ng-container list>
+            <div class="wrapper__controls">
+                <mat-form-field class="w-100">
+                    <mat-label>Suche: </mat-label>
+                    <input matInput type="text" [formControl]="searchCtrl">
+                    @if (searchCtrl.value?.length) {
+                        <button type="button" matSuffix mat-icon-button aria-label="Clear" (click)="clear()">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    }
+                </mat-form-field>
+
+                <button mat-flat-button color="primary" (click)="openAddPersonDialog()">
+                    Neue Person
+                </button>
+            </div>  
+
+            <mat-list class="w-100">
+                @for (person of ( isSearching() ? searchResults() : people()); track person.id) {
+                    <mat-list-item>
+                        <button class="button__link" (click)="setActivePerson(person)">
+                            {{person.name}}     
+                        </button>
+                        <div class="ctas">
+                            <button (click)="removePerson(person.name)" class="delete" mat-icon-button aria-label="Person entfernen">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                            <a [routerLink]="['/person', person.id]" [target]="'_blanc'" matIconButton aria-label="Detailansicht" title="Detailansicht im neuen Tab öffnen">
+                                <mat-icon>open_in_new</mat-icon>
+                            </a>
+                        </div>  
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                } @empty {
+                    <li>Keine Treffer, du hast.</li>
+                }
+            </mat-list>
+
+        </ng-container>
+
+
+        <ng-container detail>
+            @if(hasActivePerson()) {
+                <app-people-detail/>
+            } @else {
+                <p>Einen Namen wählen, du must</p>
+            }
+        </ng-container>
+
+    </app-split-view>
+
+    @if(showAlert()) {
+        <app-alert [alertText]="alertText" [alertType]="personAdded ? 'success' : 'error'"></app-alert>
+    }

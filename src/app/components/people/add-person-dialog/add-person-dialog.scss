@@ -1,0 +1,16 @@
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding-top: 8px;
+}
+.full { grid-column: auto; }
+
+@media screen and (min-width: 756px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  }
+  /* .full ist dann egal – optional zurücksetzen */
+  .full { grid-column: 1 / -1; }
+}

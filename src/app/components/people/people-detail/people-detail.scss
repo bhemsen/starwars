@@ -1,0 +1,15 @@
+:host {
+    width: 100%;
+    max-width: 800px;
+    margin-inline: auto;
+}
+
+mat-card-header {
+    justify-content: space-between;
+}
+
+tr {
+    th, td {
+        width: 50%;
+    }
+}

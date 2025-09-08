@@ -1,1 +1,189 @@
+
+// Include theming for Angular Material with `mat.theme()`.
+// This Sass mixin will define CSS variables that are used for styling Angular Material
+// components according to the Material 3 design spec.
+// Learn more about theming and how to use it for your application's
+// custom components at https://material.angular.dev/guide/theming
+@use '@angular/material' as mat;
+
+:root {
+  @include mat.toolbar-overrides((
+    container-background-color: black,
+    container-text-color: white,
+  ));
+}
+
+html {
+  @include mat.theme((
+    color: (theme-type: dark),
+    typography: Roboto,
+    density: 0,
+  ));
+  
+  --md-sys-color-primary: #FFC500;  
+  --md-sys-color-on-primary: #000;
+  --mat-sys-primary: rgb(75, 213, 238);
+
+  --md-sys-color-background: #000; 
+  --md-sys-color-surface: #000;     
+  --md-sys-color-on-surface: #fff;  
+  --md-sys-color-on-background: #fff;
+
+  --mat-icon-button-icon-color: #FFC500;  
+
+}
+
+body {
+  // Default the application to a light color theme. This can be changed to
+  // `dark` to enable the dark color theme, or to `light dark` to defer to the
+  // user's system settings.
+  color-scheme: dark;
+
+  color: var(--md-sys-color-on-surface);
+  background: var(--md-sys-color-background);
+  font: var(--mat-sys-body-medium);
+
+  // Reset the user agent margin.
+  margin: 0;
+  position: relative;
+
+}
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; width: 100%;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+* {
+  scrollbar-color: var(--mat-icon-button-icon-color) transparent;
+  scrollbar-width: thin;
+  box-sizing: border-box;
+}
+
+// Material Overrides 
+
+.mat-mdc-list-item  {
+  &.mdc-list-item {
+    padding-left: 0;
+  }
+  span {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.mat-mdc-dialog-panel {
+  width: 100%;
+}
+
+.mdc-dialog__surface {
+  padding: 16px;
+}
+
+.mat-mdc-dialog-content .mdc-dialog__content {
+  max-height: 100%;
+}
+
+// #########################################
+// Global Stylings
+
+app-root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100%;
+}
+
+.container {
+  padding-inline: 8px;
+  display: flex;
+  flex: 1; 
+  overflow: hidden;
+  max-width: 1440px;
+  width: 100%;
+  margin-inline: auto;
+}
+
+h1, h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+  font-size: 1.8rem;
+}
+
+
+.w-50 {
+  width: 50%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.button {
+  &__link {
+    color: inherit;
+    background: none;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    margin-inline: 0;
+    margin-block: auto;
+    display: inline;
+    height: fit-content;
+    line-height: 1.8;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    position: relative;
+
+    &:before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--mat-sys-on-surface);
+        visibility: hidden;
+        transition: all 0.3s ease-in-out;
+    }
+
+    &:hover {
+     &:before {
+            visibility: visible;
+            width: 100%;
+        }
+    }
+  }
+}
+
+.delete {
+  --mat-icon-button-icon-color : var(--mat-sys-error);
+}
+
+
+// StarWars Feeling
+.star {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background-color: white;
+}
+
+
+// Media Queries
+@media screen and (min-width: 756px) {
+  h1 {
+    margin-bottom: 5rem;
+  }
+
+  .container {
+    padding: 24px;
+  }
+}

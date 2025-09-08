@@ -1,0 +1,33 @@
+:host {
+    width: 100%;
+}
+
+.wrapper__controls {
+    display: flex;
+    width: 100%;
+    flex-wrap: nowrap;
+    gap: 20px;
+    
+    button {
+        --mat-button-filled-container-height: 56px;
+    }
+}
+
+mat-list {
+    flex: 0 1 auto;
+    overflow-y: scroll;
+}
+
+p {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+
+@media screen and (min-width: 756px) {
+    mat-list {
+        height: 70vh;
+        overflow-y: scroll;
+    }
+}
+
