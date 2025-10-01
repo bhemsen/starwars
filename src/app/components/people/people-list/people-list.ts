@@ -89,10 +89,6 @@ export class PeopleList {
     this.peopleDetailService.activePerson = person;
   }
 
-  getPersonId(person: Person) {
-    this.peopleListService.getPersonId(person);
-  }
-
   clear() {
     this.searchCtrl.setValue('');
   }

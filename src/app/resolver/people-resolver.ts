@@ -20,7 +20,6 @@ export const peopleResolver: ResolveFn<Observable<Person[]>> = (route, state) =>
     tap(people => peopleListService.people = people),
     finalize(() => { loadingStateService.isLoading = false; }),
     catchError(err => {
-      loadingStateService.isLoading = false
       router.navigate(['/error-404']); 
       return throwError(() => err);
     }),

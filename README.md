@@ -2,6 +2,11 @@
 
 Diese Projekt ist meine Lösungsvariante für diese [Aufgabe](public\Probeaufgabe_Angular.pdf). Die Designumsetzung ist mit Angular Material erfolgt. 
 
+```
+Angular: 20.2.2
+Node: 22.12.0
+```
+
 ## Angular Standard Befehle
 
 Die Standard-Scripts von Angular wurden nicht überschrieben oder geändert. Dev-Server läuft unter weiterhin unter `http://localhost:4200/`.
